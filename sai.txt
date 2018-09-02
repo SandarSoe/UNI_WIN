@@ -1,0 +1,30 @@
+def logical2visual(input):
+    output = input
+
+    # 1=letters
+    # 2=yayit
+    # 3=yapint
+    # 4=waswe
+    # 5=hatoe
+    # 6=tawaetoe
+    # 7=nga_tat
+    # 8=aumyit
+    # 9=yaychar
+    output = re.sub(u'([\u1000-\u1021])((?:\u1039[\u1000-\u1021])?)((?:\u103c)?)((?:\u103b)?)((?:\u103d)?)((?:\u103e)?)((?:\u1031)?)((?:\u103a)?)((?:\u1037)?)((:\u102c)?)', '\\7\\3\\1\\2\\4\\5\\6\\8\\9\\10', output)
+    output = re.sub(u'(\u1021)((?:[\u102d\u102f])?)\u102f', u'\\1\\2\u006b', output)
+
+
+    # nga_that and wasapout
+    output = re.sub(u'\u1038\u1039', u'\u1039\u1038', output)
+
+    # nga_sint
+    output = re.sub(u'\u102d\u1036\u1039', u'\u00f0', output)
+    output = re.sub(u'\u1004\u103a\u1039', u'\u0046', output)
+    # normal
+    output = re.sub(u'(\u0046)((?:\u1031)?)([\u1000-\u1021])', '\\2\\3\\1', output)
+    output = re.sub(u'([\u1000-\u1021])\u0046\u102d', u'\\1\u00d8', output)
+    #lgt
+    output = re.sub(u'([\u1000-\u1021])\u0046\u102e', u'\\1\u00d0', output)
+    #longgyitinsanke
+    output = re.sub(u'([\u1000-\u1021])\u0046\u1036', u'\\1\u00f8', output)
+    #taytaytin
